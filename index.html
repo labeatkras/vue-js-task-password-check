@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <main class="main">
+            <h1>Password Checker</h1>
+            <input :type="inputType" id="passwordOne" v-model="passwordOne" @input="checkEqual">
+            <input :type="inputType" id="passwordTwo" v-model="passwordTwo" @input="checkEqual">
+            <button @click="togglePassword()">{{ buttonText }}</button>
+            <ul>
+                <li>
+                    Passwords are equal <div v-if="isEqual">YES</div>
+                    <div v-else>NO</div>
+                </li>
+                <li>
+                    Lower Case Letters <div v-if="lowerCase">YES</div>
+                    <div v-else>NO</div>
+                </li>
+                <li>
+                    Upper Case Letters <div v-if="upperCase">YES</div>
+                    <div v-else>NO</div>
+                </li>
+                <li>
+                    Contains Numbers <div v-if="containsNumbers">YES</div>
+                    <div v-else>NO</div>
+                </li>
+                <li>
+                    Contains Special Characters <div v-if="containsSpecialCharacters">YES</div>
+                    <div v-else>NO</div>
+                </li>
+                <li>
+                    Password Length at least 10 Characters long <div v-if="passwordLength">YES</div>
+                    <div v-else>NO</div>
+                <li>
+                    Your password is {{ passwordChars }} characters long
+                </li>
+
+            </ul>
+        </main>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
